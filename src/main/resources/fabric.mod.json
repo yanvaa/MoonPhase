@@ -2,15 +2,15 @@
   "schemaVersion": 1,
   "id": "yanva_moonphase",
   "version": "${version}",
-  "name": "MoonInfo",
-  "description": "Minecraft mod to display information about the state of the moon\n\nmodified MoonPhaseInfo+",
+  "name": "Moon Info",
+  "description": "Minecraft mod to display information about the state of the moon\nmodified MoonPhaseInfo+",
   "authors": [
     "Yanva"
   ],
   "contact": {
     "repo": "https://github.com/yanvaa/MoonPhase"
   },
-  "license": "",
+  "license": "Unlicense",
   "icon": "assets/yanva_moonphase/icon.png",
   "environment": "*",
   "entrypoints": {
