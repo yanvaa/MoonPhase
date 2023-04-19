@@ -51,43 +51,22 @@ public class PhaseIcon extends DrawableHelper {
         long dayMinutesLeft = daySecondsLeft / 60;
         boolean atLeast60s = daySecondsLeft >= 60;
 
+        int x = 0;
+        int y = 0;
+
         switch (hudPosition) {
-            case (1) -> {
-                mc.textRenderer.drawWithShadow(matrixStack, String.format("%s%d%%%s",
-                                FULLNESS_COLOR[sizePercent / 25],
-                                sizePercent,
-                                phase <= 3 ? Formatting.RED + "↓" : Formatting.DARK_GREEN + "↑"),
-                        31, 17, 0xffffff);
-                mc.textRenderer.drawWithShadow(matrixStack, atLeast60s ? dayMinutesLeft + "min" : daySecondsLeft + "s",
-                        31, 17 + mc.textRenderer.fontHeight, Formatting.DARK_AQUA.getColorValue());
-            }
-            case (2) -> {
-                mc.textRenderer.drawWithShadow(matrixStack, String.format("%s%d%%%s",
-                                FULLNESS_COLOR[sizePercent / 25],
-                                sizePercent,
-                                phase <= 3 ? Formatting.RED + "↓" : Formatting.DARK_GREEN + "↑"),
-                        31, windowHeight - 23, 0xffffff);
-                mc.textRenderer.drawWithShadow(matrixStack, atLeast60s ? dayMinutesLeft + "min" : daySecondsLeft + "s",
-                        31, windowHeight - 23 + mc.textRenderer.fontHeight, Formatting.DARK_AQUA.getColorValue());
-            }
-            case (3) -> {
-                mc.textRenderer.drawWithShadow(matrixStack, String.format("%s%d%%%s",
-                                FULLNESS_COLOR[sizePercent / 25],
-                                sizePercent,
-                                phase <= 3 ? Formatting.RED + "↓" : Formatting.DARK_GREEN + "↑"),
-                        windowWidth - 34, 57, 0xffffff);
-                mc.textRenderer.drawWithShadow(matrixStack, atLeast60s ? dayMinutesLeft + "min" : daySecondsLeft + "s",
-                        windowWidth - 34, 57 + mc.textRenderer.fontHeight, Formatting.DARK_AQUA.getColorValue());
-            }
-            case (4) -> {
-                mc.textRenderer.drawWithShadow(matrixStack, String.format("%s%d%%%s",
-                                FULLNESS_COLOR[sizePercent / 25],
-                                sizePercent,
-                                phase <= 3 ? Formatting.RED + "↓" : Formatting.DARK_GREEN + "↑"),
-                        windowWidth - 34, windowHeight - 23, 0xffffff);
-                mc.textRenderer.drawWithShadow(matrixStack, atLeast60s ? dayMinutesLeft + "min" : daySecondsLeft + "s",
-                        windowWidth - 34, windowHeight - 23 + mc.textRenderer.fontHeight, Formatting.DARK_AQUA.getColorValue());
-            }
+            case (1) -> { x = 31; y = 17; }
+            case (2) -> { x = 31; y = windowHeight - 23; }
+            case (3) -> { x = windowWidth - 34; y = 57; }
+            case (4) -> { x = windowWidth - 34; y = windowHeight - 23; }
         }
+
+        mc.textRenderer.drawWithShadow(matrixStack, String.format("%s%d%%%s",
+                        FULLNESS_COLOR[sizePercent / 25],
+                        sizePercent,
+                        phase <= 3 ? Formatting.RED + "↓" : Formatting.DARK_GREEN + "↑"),
+                x, y, 0xffffff);
+        mc.textRenderer.drawWithShadow(matrixStack, atLeast60s ? dayMinutesLeft + "min" : daySecondsLeft + "s",
+                x, y + mc.textRenderer.fontHeight, Formatting.DARK_AQUA.getColorValue());
     }
 }
