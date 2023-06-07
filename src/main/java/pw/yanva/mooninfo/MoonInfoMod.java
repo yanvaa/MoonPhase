@@ -16,14 +16,14 @@ public class MoonInfoMod implements ModInitializer {
     public void onInitialize(){
         config = new ModConfig();
         icon = new PhaseIcon();
-        HudRenderCallback.EVENT.register((matrixStack, tickDelta) -> {
-            try {
-                config.load();
-                icon.drawPhaseIcon(matrixStack, config.hudPosition);
-            } catch (IOException ie) {
-                return;
-            }
-        });
+        try {
+            config.load();
+        } catch (IOException ie) {
+            return;
+        }
+        HudRenderCallback.EVENT.register(((drawContext, tickDelta) -> {
+            icon.drawPhaseIcon(drawContext, config.hudPosition);
+        }));
         KeyInputHandler.register();
     }
 }

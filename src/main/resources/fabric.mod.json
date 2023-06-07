@@ -3,7 +3,7 @@
   "id": "yanva_moonphase",
   "version": "${version}",
   "name": "Moon Info",
-  "description": "Minecraft mod to display information about the state of the moon\nmodified MoonPhaseInfo+",
+  "description": "Minecraft mod to display information about the state of the moon\nmodified MoonPhaseInfo",
   "authors": [
     "Yanva"
   ],

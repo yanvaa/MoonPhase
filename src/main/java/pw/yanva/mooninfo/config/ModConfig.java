@@ -41,6 +41,7 @@ public class ModConfig {
     public void save(int position) throws IOException {
         File file = new File(this.filename);
         file.createNewFile();
+        hudPosition = position;
         this.saveConfig("hud_position="+position);
     }
 }
